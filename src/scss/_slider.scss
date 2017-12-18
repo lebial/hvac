@@ -1,0 +1,29 @@
+.has-image{
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.overlay{
+    background-color:rgba(0, 0, 0, 0.6);
+}
+
+.has-shadow{
+  -webkit-box-shadow: 0px 9px 21px -7px rgba(0,0,0,0.36);
+  -moz-box-shadow: 0px 9px 21px -7px rgba(0,0,0,0.36);
+   box-shadow: 0px 9px 21px -7px rgba(0,0,0,0.36);
+}
+
+.hero{
+  p{
+    color: white;
+  }
+}
+#custom-brand-normal{
+  width: 200px;
+}
+#custom-brand-mobile{
+  width: 100px;
+}

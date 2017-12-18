@@ -1,0 +1,12 @@
+$primary-red: #aa1116;
+$primary-white: #dcdcdc;
+
+@mixin remove-shadow {
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.no-hover{
+  pointer-events: none;
+}
