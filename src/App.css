@@ -4,12 +4,12 @@
 .info-buttons .column .box {
   position: relative;
   top: 0;
-  transition: top ease .5s;
+  transition: top ease-in-out .3s;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; }
   .info-buttons .column .box:hover {
-    transition: ease .5s;
+    transition: ease-in-out .3s;
     top: -10px;
     background: #aa1116;
     color: white;
@@ -150,10 +150,12 @@ table {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  -webkit-transition: background-image 1s ease;
+  transition: background-image 1s ease; }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: rgba(0, 0, 0, 0.5); }
 
 .has-shadow {
   -webkit-box-shadow: 0px 9px 21px -7px rgba(0, 0, 0, 0.36);
@@ -161,7 +163,12 @@ table {
   box-shadow: 0px 9px 21px -7px rgba(0, 0, 0, 0.36); }
 
 .hero p {
-  color: white; }
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease; }
+
+.hero .faded {
+  opacity: 1; }
 
 #custom-brand-normal {
   width: 200px; }

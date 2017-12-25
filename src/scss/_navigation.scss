@@ -6,10 +6,10 @@
     .box{
       position: relative;
       top: 0;
-      transition: top ease .5s;
+      transition: top ease-in-out .3s;
       @include remove-shadow;
       &:hover{
-        transition: ease .5s;
+        transition: ease-in-out .3s;
         top: -10px;
         background: $primary-red;
         color: white;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Slider from './js/Slider';
+import PropTypes from 'prop-types';
 import './App.css';
 
  class App extends Component {
   render() {
     return (
       <div className="App">
-        <Slider />
+        <Slider promotions={this.props.promotions}/>
         <section className="section">
         <div className="container">
             <div className="columns  info-buttons">
@@ -59,5 +60,9 @@ import './App.css';
     );
   }
 }
+
+App.propTypes = {
+  promotions: PropTypes.array.isRequired,
+};
 
 export default App;

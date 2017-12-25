@@ -1,43 +1,52 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Slider extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-          currentIndex: 0,
-          slides: [
-            { index: 0,
-              url: 'http://paulryan.com.au/wp-content/uploads/2015/01/high-resolution-wallpapers-25.jpg',
-              title: 'Promotion 1 title',
-              description: 'This is the first description'},
-            { index: 1,
-              url: 'http://eniedesign.com/assets/main-bg.jpg',
-              title: 'Promotion Title 2',
-              description: 'This is the second description'},
-            { index: 2,
-              url: 'https://wallpaper.wiki/wp-content/uploads/2017/06/Free-Backgrounds-Leopard-HD-Wallpaper-High-Resolution.jpg',
-              title: 'Promotion Title 2',
-              description: 'This is the second description'},
-          ],
+          currentIndex: 0,  
+        }
+    }
+    
+    componentDidUpdate(){
+      this.fadeMod('add');
+    }
+   
+   
+    changeSlide = () => {
+      this.fadeMod('remove');
+      let current = this.state.currentIndex;
+      current === this.props.promotions.length - 1 ? current = 0 : current++;
+      this.setState({
+        currentIndex: current,
+      });
+    }
 
+    fadeMod = (action) => {
+      let elements = document.getElementsByClassName('fade');
+      for(let i = 0; i < elements.length; i++){
+        if(action === 'add'){
+          elements[i].classList.add('faded');
         }
-          changeSlide(){
-            let current = this.state.currentIndex;
-            current === 2 ? current = 0 : current++;
-            this.setState({
-              currentIndex: current
-            });
+        else{
+          elements[i].classList.remove('faded');
         }
+      }
     }
 
     render(){
+    setTimeout(this.changeSlide, 4000);
+      
+      let  url = this.props.promotions[this.state.currentIndex].url;
+      let title = this.props.promotions[this.state.currentIndex].title;
+      let description = this.props.promotions[this.state.currentIndex].description;
+      let fade = this.state.faded;
 
-
-      var  url = this.state.slides[this.state.currentIndex].url;
 
         return(
-          <section className="hero is-large has-image" style={{backgroundImage: "url("+url+")"}} onClick={() => this.changeSlide}>
+          <section className="hero is-large has-image" style={{backgroundImage: "url("+url+")"}}>
             <div className="overlay has-shadow">
             <div className="container">
                 <div className="hero-head">
@@ -66,13 +75,14 @@ export default class Slider extends Component{
                 </div>
                 <div className="hero-body">
                   <div className="container has-text-centered">
-                    <p className="title">
-                      Promotion title
+                  
+                    <p className="title fade" key={Math.random()}>
+                      {title}
                     </p>
-                    <p className="subtitle">
-                      Promotion Description.
-                      it can be long text
+                    <p className="subtitle fade">
+                      {description}
                     </p>
+                  
                   </div>
                 </div>
                </div>
@@ -80,4 +90,8 @@ export default class Slider extends Component{
             </section>
         );
     }
+}
+
+Slider.propTypes = {
+  promotions: PropTypes.array.isRequired,
 }
