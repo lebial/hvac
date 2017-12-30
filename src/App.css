@@ -16,6 +16,13 @@
     -webkit-box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51);
     box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51); }
+  .info-buttons .column .box.active-button {
+    top: -10px;
+    background: #aa1116;
+    color: white;
+    -webkit-box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51);
+    box-shadow: -1px 15px 21px -10px rgba(0, 0, 0, 0.51); }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -164,17 +171,20 @@ table {
 
 .hero p {
   color: white;
-  opacity: 0;
-  transition: opacity 1s ease; }
+  opacity: 0; }
 
 .hero .faded {
-  opacity: 1; }
+  opacity: 1;
+  transition: opacity .5s ease; }
 
 #custom-brand-normal {
   width: 200px; }
 
 #custom-brand-mobile {
   width: 100px; }
+
+.info-container {
+  visibility: visible; }
 
 .top-space {
   margin-top: 20px; }

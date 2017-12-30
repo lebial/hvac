@@ -7,42 +7,30 @@ export default class Slider extends Component{
         super(props);
         this.state = {
           currentIndex: 0,  
+          fadeClass: 'faded',
         }
     }
-    
-    componentDidUpdate(){
-      this.fadeMod('add');
+    componentDidMount(){
+      var timeId = setInterval(this.changeSlide,5000);
     }
-   
-   
     changeSlide = () => {
-      this.fadeMod('remove');
       let current = this.state.currentIndex;
       current === this.props.promotions.length - 1 ? current = 0 : current++;
       this.setState({
         currentIndex: current,
+        fadeClass: '',
       });
+      setTimeout(() => this.setState({fadeClass: 'faded'}), 1000);
+      
     }
 
-    fadeMod = (action) => {
-      let elements = document.getElementsByClassName('fade');
-      for(let i = 0; i < elements.length; i++){
-        if(action === 'add'){
-          elements[i].classList.add('faded');
-        }
-        else{
-          elements[i].classList.remove('faded');
-        }
-      }
-    }
 
     render(){
-    setTimeout(this.changeSlide, 4000);
       
       let  url = this.props.promotions[this.state.currentIndex].url;
       let title = this.props.promotions[this.state.currentIndex].title;
       let description = this.props.promotions[this.state.currentIndex].description;
-      let fade = this.state.faded;
+      let fade = this.state.fadeClass;
 
 
         return(
@@ -76,10 +64,10 @@ export default class Slider extends Component{
                 <div className="hero-body">
                   <div className="container has-text-centered">
                   
-                    <p className="title fade" key={Math.random()}>
+                    <p className={`title ${fade}`}>
                       {title}
                     </p>
-                    <p className="subtitle fade">
+                    <p className={`subtitle ${fade}`}>
                       {description}
                     </p>
                   

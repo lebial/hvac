@@ -1,8 +1,16 @@
 
-
+@mixin button-style{
+  top: -10px;
+  background: $primary-red;
+  color: white;
+  -webkit-box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
+  -moz-box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
+  box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
+}
 
 .info-buttons{
   .column{
+
     .box{
       position: relative;
       top: 0;
@@ -10,14 +18,14 @@
       @include remove-shadow;
       &:hover{
         transition: ease-in-out .3s;
-        top: -10px;
-        background: $primary-red;
-        color: white;
-        -webkit-box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
-        -moz-box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
-        box-shadow: -1px 15px 21px -10px rgba(0,0,0,0.51);
+       @include button-style;
       }
+      &.active-button{
+        @include button-style;
+      }
+      
     }
   }
 
 }
+

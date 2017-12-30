@@ -24,11 +24,11 @@
 .hero{
   p{
     color: white;     
-    opacity: 0;
-    transition: opacity 1s ease;
+    opacity: 0;    
   }
   .faded{
     opacity: 1;
+    transition: opacity .5s ease;
     
   }
 }

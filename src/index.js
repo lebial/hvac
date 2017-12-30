@@ -20,5 +20,7 @@ const PROMOTIONS =  [
       description: 'This is the third description'},
   ];
 
+  
+
 ReactDOM.render(<App promotions={PROMOTIONS} />, document.getElementById('root'));
 registerServiceWorker();
