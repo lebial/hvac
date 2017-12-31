@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './button';
+import PropTypes from 'prop-types';
 
 class InfoSection extends React.Component{
 
@@ -7,24 +8,32 @@ class InfoSection extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            activeButton: 0,
+            activeButton: '',
         }
         this.activateButton = this.activateButton.bind(this);
     }
 
-    activateButton(){
-        let prevtButton = this.state.activeButton;
-        
+    activateButton(name){        
+        this.setState({activeButton: name});
     }
     render(){
+        let buttons = this.props.buttons;
         return(
             <section className="section">
                 <div className="container">
                     <div className="columns  info-buttons">
-                       <Button iconName="fa-plus-square" buttonText="New Installs" />
-                       <Button iconName="fa-cog" buttonText="Repair & Replacements" />
-                       <Button iconName="fa-thermometer-three-quarters" buttonText="Floor Heating" />
-                       <Button iconName="fa-snowflake-o" buttonText="Air Conditioning" />        
+                    {buttons.map(btn => {
+                        return (
+                            <Button 
+                                iconName={btn.iconName} 
+                                buttonText={btn.buttonText} 
+                                handleClick={this.activateButton}
+                                name={btn.name}
+                                active={btn.name === this.state.activeButton ? 'active-button' : ''} 
+                                // TODO/: mod button component to accept this logic.
+                            />                            
+                        )
+                    })}     
                     </div>
                 </div>
                 <div className="info-container">
@@ -43,6 +52,10 @@ class InfoSection extends React.Component{
  
         );
     }
+}
+
+InfoSection.propTypes = {
+    BUTTONS: PropTypes.array.isRequired,
 }
 
 export default InfoSection;

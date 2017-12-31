@@ -20,7 +20,32 @@ const PROMOTIONS =  [
       description: 'This is the third description'},
   ];
 
+  const BUTTONS = [
+    { 
+      name: 'new',
+      iconName: 'fa-plus',
+      buttonText: 'New Installs',
+
+    },
+    { 
+      name: 'repair',
+      iconName: 'fa-cog',
+      buttonText: 'Repair & Replacements',
+    },
+    { 
+      name: 'heating',
+      iconName: 'fa-thermometer-three-quarters',
+      buttonText: 'Floor Heating',
+    },
+    { 
+      name: 'cooling',
+      iconName: 'fa-snowflake-o',
+      buttonText: 'Air Conditioning',
+    },
+    
+  ];
+
   
 
-ReactDOM.render(<App promotions={PROMOTIONS} />, document.getElementById('root'));
+ReactDOM.render(<App promotions={PROMOTIONS} buttons={BUTTONS}/>, document.getElementById('root'));
 registerServiceWorker();

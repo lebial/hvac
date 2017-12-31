@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
-    return (
+    const {name, handleClick, active, iconName, buttonText} = props;
+    return (       
     <div className="column">        
-        <div className="box has-text-centered">
+        <div className={`box has-text-centered ${active}`} onClick={handleClick.bind(this, name)}>
             <div className="icon is-large">
-                <i className={`fa fa-2x ${props.iconName}`} aria-hidden="true"></i>
+                <i className={`fa fa-2x ${iconName}`} aria-hidden="true"></i>
             </div>
             <br/>
-            <p> {props.buttonText} </p>            
+            <p> {buttonText} </p>            
         </div>       
     </div>
     );
@@ -17,7 +18,9 @@ const Button = (props) => {
 Button.propTypes = {
     iconName: PropTypes.string.isRequired,
     buttonText: PropTypes.string.isRequired,
-    activateButton: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    active: PropTypes.string.isRequired,
 }
 
 export default Button;
