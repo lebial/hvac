@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from './button';
+import InfoPanel from './InfoPanel';
 import PropTypes from 'prop-types';
 
 class InfoSection extends React.Component{
@@ -30,23 +31,14 @@ class InfoSection extends React.Component{
                                 handleClick={this.activateButton}
                                 name={btn.name}
                                 active={btn.name === this.state.activeButton ? 'active-button' : ''} 
-                                // TODO/: mod button component to accept this logic.
+                                key={btn.name}
                             />                            
                         )
                     })}     
                     </div>
+                    <InfoPanel />
                 </div>
-                <div className="info-container">
-                    <div className="container">
-                        <div className="column ">
-                            <div className="card">
-                                <div className="card-content">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
             </section>
  
@@ -55,7 +47,7 @@ class InfoSection extends React.Component{
 }
 
 InfoSection.propTypes = {
-    BUTTONS: PropTypes.array.isRequired,
+    buttons: PropTypes.array.isRequired,
 }
 
 export default InfoSection;

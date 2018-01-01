@@ -11,7 +11,7 @@ export default class Slider extends Component{
         }
     }
     componentDidMount(){
-      var timeId = setInterval(this.changeSlide,5000);
+      setInterval(this.changeSlide,5000);
     }
     changeSlide = () => {
       let current = this.state.currentIndex;
