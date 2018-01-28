@@ -9,7 +9,7 @@ class InfoSection extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            activeButton: '',
+            activeButton: 'new',
         }
         this.activateButton = this.activateButton.bind(this);
     }
@@ -18,7 +18,9 @@ class InfoSection extends React.Component{
         this.setState({activeButton: name});
     }
     render(){
+        let actualButton = this.state.activeButton;
         let buttons = this.props.buttons;
+        let selectedInfo = this.props.info[actualButton];
         return(
             <section className="section">
                 <div className="container">
@@ -36,7 +38,7 @@ class InfoSection extends React.Component{
                         )
                     })}     
                     </div>
-                    <InfoPanel />
+                    { actualButton !== 'gallery' ? <InfoPanel info={selectedInfo}/> : ''}
                 </div>
                 
 
@@ -48,6 +50,7 @@ class InfoSection extends React.Component{
 
 InfoSection.propTypes = {
     buttons: PropTypes.array.isRequired,
+    info: PropTypes.object.isRequired,
 }
 
 export default InfoSection;

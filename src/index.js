@@ -25,7 +25,6 @@ const PROMOTIONS =  [
       name: 'new',
       iconName: 'fa-plus',
       buttonText: 'New Installs',
-
     },
     { 
       name: 'repair',
@@ -36,16 +35,77 @@ const PROMOTIONS =  [
       name: 'heating',
       iconName: 'fa-thermometer-three-quarters',
       buttonText: 'Floor Heating',
+      
     },
     { 
-      name: 'cooling',
-      iconName: 'fa-snowflake-o',
-      buttonText: 'Air Conditioning',
+      name: 'gallery',
+      iconName: 'fa-picture-o',
+      buttonText: 'Gallery',
+      
     },
     
   ];
 
+  const INFORMATION = {
+    new: {
+      primary: {
+        title: 'New Installs',
+        image: 'http://nationalsupply.net/Site/graphics/tools/tools.jpg'
+      },
+      secondary: {
+        title: 'Secondary install title',
+        description: 'this is the description for this info section.'
+      },
+      main: {
+        title: 'Main install section',
+        description: 'This is the description for the main info section which contains a relatively long text.'
+      }
+    },
+    repair: {
+      primary: {
+        title: 'Repairs',
+        image: './img/repair.jpg'
+      },
+      secondary: {
+        title: 'Secondary repair title',
+        description: 'this is the description for this info section.'
+      },
+      main: {
+        title: 'Main repair section',
+        description: 'This is the description for the main info section which contains a relatively long text. for repairs'
+      }
+    },
+    heating: {
+      primary: {
+        title: 'Floor Heating',
+        image: './img/heating.jpeg'
+      },
+      secondary: {
+        title: 'Secondary heating title',
+        description: 'this is the description for this info section.'
+      },
+      main: {
+        title: 'Main heating section',
+        description: 'This is the description for the main info section which contains a relatively long text. for repairs'
+      }
+    },
+    gallery: {
+      primary: {
+        title: 'Gallery',
+        image: './img/cooling.jpeg'
+      },
+      secondary: {
+        title: 'Secondary cooling title',
+        description: 'this is the description for this info section.'
+      },
+      main: {
+        title: 'Main cooling section',
+        description: 'This is the description for the main info section which contains a relatively long text. for repairs'
+      }
+    },
+  }
+
   
 
-ReactDOM.render(<App promotions={PROMOTIONS} buttons={BUTTONS}/>, document.getElementById('root'));
+ReactDOM.render(<App promotions={PROMOTIONS} buttons={BUTTONS} info={INFORMATION}/>, document.getElementById('root'));
 registerServiceWorker();

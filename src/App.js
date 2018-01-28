@@ -9,7 +9,7 @@ import './App.css';
     return (
       <div className="App">
         <Slider promotions={this.props.promotions}/>
-        <InfoSection buttons={this.props.buttons} />
+        <InfoSection buttons={this.props.buttons} info={this.props.info} />
       </div>
     );
   }
@@ -18,6 +18,7 @@ import './App.css';
 App.propTypes = {
   promotions: PropTypes.array.isRequired,
   buttons: PropTypes.array.isRequired,
+  info: PropTypes.object.isRequired,
 };
 
 export default App;

@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InfoPanel = props => {
-
+const InfoPanel = (props) => {
     return (
         <div className="info-container">
             <div className="container">
                 <div className="column ">
                     <div className="tile is-ancestor">
-                        <div className="tile is-4 is-vertical is-parent">
-                            <div className="tile is-child box" style={{background: 'silver'}}>
-                                <p className="title">One</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                        <div className="tile is-4 is-vertical is-parent ">
+                            <div className="tile is-child box  has-text-centered" style={{background: 'silver'}}>
+                                <p className="title">{props.info.primary.title}</p>
+                                <figure class="image is-128x128 ">
+                                    <img src="https://bulma.io/images/placeholders/640x480.png"/>
+                                </figure>
                             </div>
                             <div className="tile is-child box" style={{background: 'gainsboro'}}>
                                 <p className="title">Two</p>
@@ -32,5 +33,7 @@ const InfoPanel = props => {
         </div>
     );
 }
-
+InfoPanel.propTypes = {
+    info: PropTypes.object.isRequired,
+}
 export default InfoPanel;
